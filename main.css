@@ -1,0 +1,89 @@
+/* 背景（あなたのイラスト） */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: url("./img/bg.png") repeat;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* PCレイアウト */
+.layout {
+  display: flex;
+  height: 100vh;
+}
+
+/* 各カラム */
+.panel {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* ガラスカード */
+.glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Masonry風 */
+.grid {
+  columns: 2;
+  gap: 16px;
+}
+
+.item {
+  break-inside: avoid;
+  background: rgba(255, 255, 255, 0.2);
+  margin-bottom: 16px;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* モバイルナビ */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.mobile-nav button {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  background: none;
+  color: white;
+}
+
+/* モバイル */
+@media (max-width: 768px) {
+  body {
+    overflow: auto;
+  }
+
+  .layout {
+    display: block;
+  }
+
+  .panel {
+    display: none;
+    height: auto;
+    overflow: visible;
+  }
+
+  .panel.active {
+    display: block;
+    padding-top: 60px;
+  }
+
+  .mobile-nav {
+    display: flex;
+  }
+}
